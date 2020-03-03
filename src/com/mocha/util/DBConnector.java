@@ -1,5 +1,7 @@
 package com.mocha.util;
 
+import java.io.File;
+
 /*
  * Copyright (C) 2020 - Mocha - An online shoe shopping e-commerce website
  *
@@ -37,7 +39,8 @@ public class DBConnector {
 		Connection conn = null;
         try{
         	Properties props = new Properties();
-			FileInputStream in = new FileInputStream(System.getProperty("user.dir")+"\\resources\\database.properties");
+        	String path = DBConnector.class.getProtectionDomain().getCodeSource().getLocation().getPath().split("classes")[0];
+        	FileInputStream in = new FileInputStream(path+"\\resources\\database.properties");
 			props.load(in);
 			in.close();
 			String driver = props.getProperty("jdbc.driver");

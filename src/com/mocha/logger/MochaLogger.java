@@ -22,6 +22,8 @@ import java.io.File;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.mocha.util.DBConnector;
+
 /**
  * Class used to declare the logger messages that are used in Patient Care files
  */
@@ -32,7 +34,8 @@ public class MochaLogger {
 
 	public static org.apache.log4j.Logger getLogger() {
 		// Load the log4j properties
-		PropertyConfigurator.configure("resources" + File.separator + "log4j.properties");
+		String path = DBConnector.class.getProtectionDomain().getCodeSource().getLocation().getPath().split("classes")[0];
+		PropertyConfigurator.configure(path+"//resources" + File.separator + "log4j.properties");
 		// Initialise the logger for log messages
 		return logger;
 	}
