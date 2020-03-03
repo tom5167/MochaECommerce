@@ -1,7 +1,5 @@
 package com.mocha.util;
 
-import java.io.File;
-
 /*
  * Copyright (C) 2020 - Mocha - An online shoe shopping e-commerce website
  *
