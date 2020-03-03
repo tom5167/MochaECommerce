@@ -25,7 +25,7 @@ import org.apache.log4j.PropertyConfigurator;
 import com.mocha.util.DBConnector;
 
 /**
- * Class used to declare the logger messages that are used in Patient Care files
+ * MochaLogger Class used to declare the logger messages that are used in Mocha files
  */
 
 public class MochaLogger {

@@ -29,6 +29,10 @@ import org.apache.log4j.Logger;
 
 import com.mocha.logger.MochaLogger;
 
+/**
+ * DBConnector Class used to create jdbc connection to database
+ */
+
 public class DBConnector {
 	
 	static Logger logger = MochaLogger.getLogger();
