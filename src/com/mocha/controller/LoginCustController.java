@@ -1,5 +1,23 @@
 package com.mocha.controller;
 
+/*
+ * Copyright (C) 2020 - Mocha - An online shoe shopping e-commerce website
+ *
+ * Licensed under Mocha CLIENT LICENSE AGREEMENT (the "License");
+ * you may not use this file except in compliance with the License.
+ *
+ * User acknowledges and agrees that this class constitute and incorporate PatientCare's confidential information. 
+ * User shall take all reasonable precautions necessary to safeguard the confidentiality of all confidential information.  
+ * 
+ * User shall not:
+ * (a) allow the removal or defacement of any confidentiality or proprietary notice placed on any confidential information
+ * (a) permit any other person or third party to use or access the class; 
+ * (b) sublicense, redistribute, sell, lease, or otherwise make the class available to any other person or third party;
+ * (c) redistribute through personal email accounts, USB drives, internal or third party FTP sites, or internal share drives;  
+ * (c) reproduce, copy, translate, modify, adapt, decompile, disassemble or reverse engineer any portion of the class or 
+ *     otherwise attempt to secure the source code of all or any part of the Software; 
+ */
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,16 +32,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.mocha.dto.Customer;
+import com.mocha.logger.MochaLogger;
 import com.mocha.util.DBConnector;
 
 /**
- * Servlet implementation class LoginController
- */
-/**
  * 
+ * LoginCustController Class - This class is for customer login
+ * 
+ * @version 1.0
  * @author KOZHI
- * LoginController class - Login for customer
+ * @since Apr 1,2020
  * 
  */
 
@@ -31,26 +52,31 @@ import com.mocha.util.DBConnector;
 public class LoginCustController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	static Logger logger = MochaLogger.getLogger();
+
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * LoginCustController.LoginCustController()
+	 * 
+	 * @return void
 	 */
 	public LoginCustController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * LoginCustController.doGet()
+	 * 
+	 * @param HttpServletRequest
+	 * @param HttpServletResponse
+	 * @return void
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		logger.info("LoginCustController.doGet() starts");
 
 		// forward page
 		String nextPage = "";
@@ -151,16 +177,21 @@ public class LoginCustController extends HttpServlet {
 		// forward to result page
 		RequestDispatcher view = request.getRequestDispatcher(nextPage);
 		view.forward(request, response);
+		logger.info("LoginCustController.doGet() ends");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * LoginCustController.doPost()
+	 * 
+	 * @param HttpServletRequest
+	 * @param HttpServletResponse
+	 * @return void
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		logger.info("LoginCustController.doPost() starts");
 		doGet(request, response);
+		logger.info("LoginCustController.doPost() ends");
 	}
 
 }

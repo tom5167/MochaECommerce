@@ -49,6 +49,7 @@ import javax.servlet.http.HttpSession;
 
 import com.mocha.dto.Csr;
 import com.mocha.dto.Customer;
+import com.mocha.util.DBConnector;
 
 /**
  * Servlet implementation class RegisterController
@@ -98,12 +99,6 @@ public class RegisterNewController extends HttpServlet {
 		// forward page 
 		String nextPage = "";	 
 		
-		// variables
-		 response.setContentType("text/html");
-		 String connectionUrl = "jdbc:mysql://localhost:3306/MVCDB";
-		 String connectionUser = "root";
-		 String connectionPassword = "mydb1234";
-				 
 		// get params
         String category = request.getParameter("category");
 		String email = request.getParameter("email");
@@ -118,9 +113,8 @@ public class RegisterNewController extends HttpServlet {
 			
 			
 	        // DB connection
-	        Class.forName("com.mysql.jdbc.Driver").newInstance();     
-			con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
-			
+			con = DBConnector.getConnection();
+
 			String sql = "";			
 			  
 			if(category.equals("Customers"))

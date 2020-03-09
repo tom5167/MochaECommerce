@@ -11,22 +11,6 @@ package com.mocha.dto;
  * modified Date : Nov 22, 2018
  * --------------------------------------------- 
  *
- * Page : Customer.java (bean)
- * 
- * Reference :  TABLE Customers  
- * 
-	customerNo	int NOT NULL auto_increment primary key,
-	customerId	varchar(60) NOT NULL,
-    username varchar(30) NOT NULL,
-    userpwd	varchar(30) NOT NULL,
-    firstname varchar(30) NOT NULL,
-    lastname varchar(30) NOT NULL,
-    address varchar(100) NULL,
-    city varchar(30) NULL,
-    postalCode varchar(10) NULL
- 
-
- *
  */ 
 
 public class Customer {

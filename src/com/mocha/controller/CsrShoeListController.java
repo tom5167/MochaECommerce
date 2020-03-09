@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mocha.dto.Shoes;
+import com.mocha.util.DBConnector;
 
 /**
  * Servlet implementation class LoginController
@@ -33,17 +34,6 @@ import com.mocha.dto.Shoes;
  * Page Task	: CSR page - Show Shoes' list 
  *				  select data -> set attribute for shoes Arraylist -> forward to CrsShoeList.jsp
  *
- * references db structure : 
- Shoes 
-	itemId int NOT NULL auto_increment primary key,
-    itemName varchar(50) NOT NULL,
-    category varchar(10) NOT NULL,
-    shoesize varchar(5) NOT NULL,
-	quantity int NOT NULL,
-    price	decimal(7,2) NOT NULL 
-    
- *
- */ 
 /**
  * Servlet implementation class CsrShoeListController
  */
@@ -72,11 +62,6 @@ public class CsrShoeListController extends HttpServlet {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-		// variables 
-		 String connectionUrl = "jdbc:mysql://localhost:3306/MVCDB";
-		 String connectionUser = "root";
-		 String connectionPassword = "mydb1234";
-		
 		 String category = request.getParameter("category");
 		 
 		 // select shoe list	
@@ -87,9 +72,8 @@ public class CsrShoeListController extends HttpServlet {
 						+ " where category = '" + category + "' order by itemId desc ";
 		     
 		        // DB connection
-		        Class.forName("com.mysql.jdbc.Driver").newInstance();     
-				con = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
-				
+				con = DBConnector.getConnection();
+
 		        // resultSet
 				pst = con.prepareStatement(sql);
 				rs = pst.executeQuery(); 

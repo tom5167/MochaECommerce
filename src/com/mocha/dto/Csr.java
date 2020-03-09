@@ -11,17 +11,6 @@ package com.mocha.dto;
  * modified Date : Nov 22, 2018
  * --------------------------------------------- 
  *
- * Page : Employee.java (bean)
- * 
- * Reference :  Employee  
-	csrNo	int NOT NULL auto_increment primary key,
-	employeeId	varchar(60) NOT NULL,
-    username varchar(30) NOT NULL,
-    userpwd	varchar(30) NOT NULL,
-    firstname varchar(30) NOT NULL,
-    lastname varchar(30) NOT NULL 
-
- *
  */ 
 public class Csr {
 

@@ -30,47 +30,70 @@ import org.apache.log4j.Logger;
 import com.mocha.logger.MochaLogger;
 
 /**
- * DBConnector Class used to create jdbc connection to database
+ * DBConnector Class - This class is used to create jdbc connection to database
+ * 
+ * @version 1.0
+ * @author KOZHI
+ * @since Apr 1,2020
+ * 
  */
 
 public class DBConnector {
-	
+
 	static Logger logger = MochaLogger.getLogger();
-        
-	public static Connection getConnection(){
+
+	/**
+	 * DBConnector.getConnection()
+	 * 
+	 * @return Connection
+	 */
+	public static Connection getConnection() {
 		Connection conn = null;
-        try{
-        	Properties props = new Properties();
-        	String path = DBConnector.class.getProtectionDomain().getCodeSource().getLocation().getPath().split("classes")[0];
-        	FileInputStream in = new FileInputStream(path+"\\resources\\database.properties");
+		try {
+			Properties props = new Properties();
+			String path = DBConnector.class.getProtectionDomain().getCodeSource().getLocation().getPath()
+					.split("classes")[0];
+			FileInputStream in = new FileInputStream(path + "\\resources\\database.properties");
 			props.load(in);
 			in.close();
 			String driver = props.getProperty("jdbc.driver");
 			String connUrl = props.getProperty("jdbc.url");
 			String username = props.getProperty("jdbc.username");
 			String password = props.getProperty("jdbc.password");
-			logger.info("connectionUrl -> "+connUrl);
-			logger.info("jdbcDriver -> "+driver);
-        	Class.forName(driver);
-        	if(username != null && !username.isEmpty() 
-        			&& password != null && !password.isEmpty()) {
-        		conn = DriverManager.getConnection(connUrl,username, password);
-        	} else {
-        		conn = DriverManager.getConnection(connUrl);
-        	}
-            return conn;
-        }catch(Exception e){
-        	e.printStackTrace();
-            return null;
-        }
-    }
+			// logger.info("connectionUrl -> "+connUrl);
+			// logger.info("jdbcDriver -> "+driver);
+			Class.forName(driver);
+			if (username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
+				conn = DriverManager.getConnection(connUrl, username, password);
+			} else {
+				conn = DriverManager.getConnection(connUrl);
+			}
+			return conn;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
-
+	/**
+	 * DBConnector.closeConnection()
+	 * 
+	 * @param Connection
+	 * @return void
+	 */
 	public static void closeConnection(Connection con) throws Exception {
 		if (con != null)
 			con.close();
 	}
 
+	/**
+	 * DBConnector.closeConnectionAll()
+	 * 
+	 * @param Connection
+	 * @param Statement
+	 * @param ResultSet
+	 * @return Connection
+	 */
 	public static void closeConnectionAll(Connection con, Statement st, ResultSet rs) throws Exception {
 		if (con != null)
 			con.close();

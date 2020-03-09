@@ -23,8 +23,6 @@ import com.mocha.util.DBConnector;
  * Page Task	: OrdersDAO 
  * 				  all tasks related to access database 'Orders' 
  *
- * references db : Orders
- *
  */ 
 public class OrdersDAO {
 

@@ -22,17 +22,6 @@ import com.mocha.util.DBConnector;
  *
  * Page Task	: ShoesDAO 
  * 				  all tasks related to access database 'Shoes' 
- *
- * references db structure : 
- 	Shoes 
-	itemId int NOT NULL auto_increment primary key,
-    itemName varchar(50) NOT NULL,
-    category varchar(10) NOT NULL,
-    shoesize varchar(5) NOT NULL,
-	quantity int NOT NULL,
-    price	decimal(7,2) NOT NULL 
-    
- *
  */ 
 
 public class ShoesDAO {
