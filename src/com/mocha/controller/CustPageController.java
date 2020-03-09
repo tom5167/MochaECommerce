@@ -15,7 +15,7 @@ import com.mocha.dto.Customer;
 import com.mocha.dto.Orders;
 
 /**
- * Servlet implementation class MyPageController
+ * Servlet implementation class CustPageController
  */
 /*
 * --------------------------------------------- 
@@ -37,7 +37,7 @@ import com.mocha.dto.Orders;
 * 
 */
 
-@WebServlet("/MyPageController")
+@WebServlet("/CustPageController")
 public class CustPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -135,7 +135,7 @@ public class CustPageController extends HttpServlet {
 		
 		//////////////////////////
 		// Dispatcher - forward to result page
-		getServletContext().getRequestDispatcher("/MyPage.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/CustPage.jsp").forward(request, response);
 		
 	}
 

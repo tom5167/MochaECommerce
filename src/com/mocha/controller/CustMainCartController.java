@@ -81,7 +81,7 @@ public class CustMainCartController extends HttpServlet {
 		}
 		 
 		// Dispatcher - forward to result page
-		getServletContext().getRequestDispatcher("/MyCart.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/CustCart.jsp").forward(request, response);
 		 
 	}
 

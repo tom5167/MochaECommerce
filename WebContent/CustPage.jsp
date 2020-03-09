@@ -188,7 +188,7 @@ body { padding-top: 70px; }
  
  
          <!-- form to edit and delete --> 
-		<form action="MyPageController" method="post" name="cartForm"> 
+		<form action="CustPageController" method="post" name="cartForm"> 
 		 	<input type="hidden" value="" name="orderId">
 		 	<input type="hidden" value="" name="mode">
 		 	<input type="hidden" value="" name="quantity"> 

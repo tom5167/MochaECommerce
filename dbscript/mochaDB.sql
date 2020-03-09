@@ -13,8 +13,11 @@ price decimal(7,2) NOT NULL,
 content varchar(100) NOT NULL
 );
 
+DROP TABLE IF EXISTS Cart;
 CREATE TABLE Cart (
-itemId int NOT NULL auto_increment primary key,
+cartNo int NOT NULL auto_increment primary key,
+itemId int NOT NULL,
+customerId int NOT NULL,
 itemName varchar(50) NOT NULL,
 category varchar(10) NOT NULL,
 shoesize varchar(5) NOT NULL,

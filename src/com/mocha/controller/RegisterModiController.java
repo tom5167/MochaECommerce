@@ -74,7 +74,7 @@ public class RegisterModiController extends HttpServlet {
 		
 		//////////////////////////
 		// Dispatcher - forward to result page
-		getServletContext().getRequestDispatcher("/MyPageController").forward(request, response);
+		getServletContext().getRequestDispatcher("/CustPageController").forward(request, response);
 		
 	}
 
