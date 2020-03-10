@@ -1,4 +1,4 @@
-package com.mocha.dto;
+package com.mocha.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
